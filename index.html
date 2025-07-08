@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech For Girls Registration Website</title>
+  <script src="https://unpkg.com/lottie-web@5.9.6/build/player/lottie.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Preloader -->
+<div id="preloader">
+  <div class="loader">
+    <div id="lottie-loader" style="width: 200px; height: 200px;"></div>
+    <p>Loading Tech For Girls...</p>
+  </div>
+</div>
+
+  <!-- Theme Toggle -->
+  <div class="theme-toggle">
+    <label class="switch">
+      <input type="checkbox" id="theme-toggle-checkbox">
+      <span class="slider round"></span>
+    </label>
+    <span class="toggle-label">Toggle Theme</span>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast">🎉 Your submission has been recorded!</div>
+
+  <!-- Layout Container -->
+  <div class="layout">
+    <!-- Optional Illustration -->
+    <div class="illustration">
+      <div id="lottie-animation" style="width: 300px; height: 300px;"></div>
+    </div>
+
+
+    <!-- Registration Form -->
+    <div class="container">
+      <form id="registration-form" method="post" action="" name="contact-form">
+        <h4>Tech for Girls: Registration</h4>
+
+        <input type="text" name="Name" placeholder="Name" required>
+        <input type="number" name="Number" placeholder="Phone Number" required>
+        <input type="email" name="Email" placeholder="Email ID" required>
+        <input type="text" name="College" placeholder="College/Department" required>
+
+        <button type="button" id="whatsapp-share">📲 Share on WhatsApp</button>
+        <p id="share-count">Click count: 0/5</p>
+        <p id="share-complete-message" style="display: none;">Sharing complete. Please continue.</p>
+
+        <label for="screenshot-upload">Upload Screenshot (Resume/Photo):</label>
+        <input type="file" id="screenshot-upload" name="screenshot" accept="image/*,.pdf" required>
+
+        <img id="screenshot-preview" src="#" alt="Screenshot Preview" style="display: none;" />
+
+        <input type="submit" value="Submit Registration" id="submit-registration">
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

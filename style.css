@@ -1,0 +1,350 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Base Reset */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+body.light-mode {
+  background: linear-gradient(135deg, #f8c8dc, #c8a2c8);
+  background-image: linear-gradient(135deg, #f8c8dc, #c8a2c8),
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.6), transparent 70%);
+  background-blend-mode: screen;
+  color: #000;
+}
+
+body.dark-mode {
+  background: linear-gradient(135deg, #1a1a1a, #2e2e2e);
+  background-image: linear-gradient(135deg, #1a1a1a, #2e2e2e),
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.05), transparent 70%);
+  background-blend-mode: screen;
+  color: #fff;
+}
+
+body.dark-mode .container {
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.35);
+}
+
+/* Layout for illustration + form */
+.layout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+/* Illustration */
+.illustration img {
+  width: 300px;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.illustration #lottie-animation {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Container with Pulse + Bounce */
+.container {
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  animation: bounceIn 0.8s ease-out, pulseGlow 3s ease-in-out infinite;
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.25);
+  will-change: box-shadow, transform;
+}
+
+/* Heading */
+h4 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: black;
+  font-weight: 600;
+}
+
+/* Inputs */
+input,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 15px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #000;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  border-color: orangered;
+  box-shadow: 0 0 5px rgba(255, 69, 0, 0.3);
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode input[type="file"] {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border-color: #555;
+}
+
+/* Buttons */
+#whatsapp-share,
+#submit-registration {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 15px;
+}
+
+#whatsapp-share {
+  background-color: #25d366;
+  color: white;
+  margin-bottom: 10px;
+}
+
+#whatsapp-share:hover {
+  background-color: #128c7e;
+}
+
+#submit-registration {
+  background-color: orangered;
+  color: white;
+}
+
+#submit-registration:hover {
+  background-color: #333;
+}
+
+/* File Upload */
+input[type="file"] {
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #000;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+/* Share Info */
+#share-count,
+#share-complete-message {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+#share-complete-message {
+  display: none;
+  color: black;
+}
+
+body.dark-mode #share-complete-message {
+  color: white;
+}
+
+/* Screenshot Preview */
+#screenshot-preview {
+  display: block;
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 10;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: orangered;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.toggle-label {
+  font-size: 14px;
+  color: inherit;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #d20f0f;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: none;
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.toast.show {
+  display: block;
+  opacity: 1;
+  animation: fadeIn 0.3s ease, fadeOut 0.5s ease 3.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  to   { opacity: 0; transform: translateY(-20px); }
+}
+
+/* Preloader */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 9999;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#preloader .loader p {
+  margin-top: 20px;
+  font-weight: 600;
+  color: orangered;
+}
+
+#preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#lottie-loader {
+  width: 200px;
+  height: 200px;
+}
+
+/* Animations */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(30px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.03) translateY(-10px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 105, 180, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.2);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .illustration img {
+    width: 200px;
+    margin: 0 auto;
+  }
+}
